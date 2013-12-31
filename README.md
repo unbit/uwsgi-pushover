@@ -49,3 +49,37 @@ plugins = pushover
 
 hook-post-app = pushover:token=XXX,user=YYY,message=Your app has been loaded
 ...
+```
+
+Available keyval options
+------------------------
+
+pushover-api related:
+
+* token
+* user
+* message
+* device
+* title
+* url
+* url_title
+* priority
+* timestamp
+* sound
+
+check https://pushover.net/api#details for details
+
+uwsgi related:
+
+* pushover_url -> allows you to specify an alternative pushover url (default https://api.pushover.net/1/messages.json)
+* ssl_no_verify -> if set, curl will not verify the server ssl certificate
+* timeout -> set the socket timeout
+
+Bulding and requirements
+------------------------
+
+The plugin makes use of libcurl, it is 2.0-friendly so you can easily build it with:
+
+```sh
+uwsgi --build-plugin <directory>
+```
